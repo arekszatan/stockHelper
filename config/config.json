@@ -1,0 +1,40 @@
+{
+	"ip": "localhost",
+	"username": "*****",
+	"password": "********",
+    "companies":
+    [
+      {
+        "company": "11 bit studios SA",
+        "divLink": "NONE"
+      },
+      {
+        "company": "3R Games SA",
+        "divLink": "NONE"
+      },
+      {
+        "company": "AB SA",
+        "divLink": "https://strefainwestorow.pl/notowania/gpw/abpl-abe/dywidendy"
+      },
+      {
+        "company": "AC SA",
+        "divLink": "NONE"
+      },
+      {
+        "company": "Action SA",
+        "divLink": "NONE"
+      },
+      {
+        "company": "Adiuvo Investments SA",
+        "divLink": "NONE"
+      },
+      {
+        "company": "Agora SA",
+        "divLink": "NONE"
+      },
+      {
+        "company": "Agroton SA",
+        "divLink": "NONE"
+      }
+    ]
+}
