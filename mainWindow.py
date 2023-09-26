@@ -15,7 +15,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QHeaderView, QLabel,
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QHeaderView,
     QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
     QStackedWidget, QTableView, QVBoxLayout, QWidget)
 
@@ -24,7 +24,204 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(876, 698)
-        MainWindow.setStyleSheet(u"")
+        MainWindow.setStyleSheet(u"/*-----QWidget-----*/\n"
+"QWidget\n"
+"{\n"
+"	background-color: #232430;\n"
+"	color: #000000;\n"
+"	border-color: #000000;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QLabel-----*/\n"
+"QLabel\n"
+"{\n"
+"	background-color: #232430;\n"
+"	color: #c1c1c1;\n"
+"	border-color: #000000;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QPushButton-----*/\n"
+"QPushButton\n"
+"{\n"
+"	background-color: #ff9c2b;\n"
+"	color: #000000;\n"
+"	font-weight: bold;\n"
+"	border-style: solid;\n"
+"	border-color: #000000;\n"
+"	padding: 6px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton::hover\n"
+"{\n"
+"	background-color: #ffaf5d;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton::pressed\n"
+"{\n"
+"	background-color: #dd872f;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QToolButton-----*/\n"
+"QToolButton\n"
+"{\n"
+"	background-color: #ff9c2b;\n"
+"	color: #000000;\n"
+"	font-weight: bold;\n"
+"	border-style: solid;\n"
+"	border-color: #000000;\n"
+"	padding: 6px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QToolButton::hover\n"
+"{\n"
+"	background-color: #ffaf5d;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QToolButton::pressed\n"
+"{\n"
+"	backgroun"
+                        "d-color: #dd872f;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QLineEdit-----*/\n"
+"QLineEdit\n"
+"{\n"
+"	background-color: #38394e;\n"
+"	color: #c1c1c1;\n"
+"	border-style: solid;\n"
+"	border-width: 1px;\n"
+"	border-color: #4a4c68;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"/*-----QTabWidget-----*/\n"
+"QTabWidget::pane \n"
+"{ \n"
+"    border: none;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabWidget::tab-bar \n"
+"{\n"
+"    left: 5px; \n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab \n"
+"{\n"
+"    color: #c1c1c1;\n"
+"    min-width: 1px;\n"
+"	padding-left: 25px;\n"
+"	margin-left:-22px;\n"
+"    height: 28px;\n"
+"	border: none;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:selected \n"
+"{\n"
+"    color: #c1c1c1;\n"
+"	font-weight: bold;\n"
+"    height: 28px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:!first \n"
+"{\n"
+"    margin-left: -20px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QTabBar::tab:hover \n"
+"{\n"
+"    color: #DDD;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"/*-----QScrollBar-----*/\n"
+"QScrollBar:horizontal \n"
+"{\n"
+"    background-color: transparent;\n"
+"    height: 8px;\n"
+"    margin: 0px;\n"
+""
+                        "    padding: 0px;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::handle:horizontal \n"
+"{\n"
+"    border: none;\n"
+"	min-width: 100px;\n"
+"    background-color: #56576c;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::add-line:horizontal, \n"
+"QScrollBar::sub-line:horizontal,\n"
+"QScrollBar::add-page:horizontal, \n"
+"QScrollBar::sub-page:horizontal \n"
+"{\n"
+"    width: 0px;\n"
+"    background-color: transparent;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar:vertical \n"
+"{\n"
+"    background-color: transparent;\n"
+"    width: 8px;\n"
+"    margin: 0;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::handle:vertical \n"
+"{\n"
+"    border: none;\n"
+"	min-height: 100px;\n"
+"    background-color: #56576c;\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::add-line:vertical, \n"
+"QScrollBar::sub-line:vertical,\n"
+"QScrollBar::add-page:vertical, \n"
+"QScrollBar::sub-page:vertical \n"
+"{\n"
+"    height: 0px;\n"
+"    background-color: transparent;\n"
+"\n"
+"}")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"")
@@ -67,30 +264,31 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.widget)
 
-        self.stackedWidget = QStackedWidget(self.centralwidget)
-        self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setStyleSheet(u"")
+        self.mainContentStacked = QStackedWidget(self.centralwidget)
+        self.mainContentStacked.setObjectName(u"mainContentStacked")
+        self.mainContentStacked.setStyleSheet(u"")
         self.Home = QWidget()
         self.Home.setObjectName(u"Home")
-        self.label = QLabel(self.Home)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(300, 40, 47, 13))
-        self.tableView = QTableView(self.Home)
-        self.tableView.setObjectName(u"tableView")
-        self.tableView.setGeometry(QRect(95, 80, 431, 511))
-        self.tableView.setStyleSheet(u"")
-        self.stackedWidget.addWidget(self.Home)
+        self.gridLayout = QGridLayout(self.Home)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.all_companies_table = QTableView(self.Home)
+        self.all_companies_table.setObjectName(u"all_companies_table")
+        self.all_companies_table.setStyleSheet(u"")
+
+        self.gridLayout.addWidget(self.all_companies_table, 0, 0, 1, 1, Qt.AlignHCenter)
+
+        self.mainContentStacked.addWidget(self.Home)
         self.page_4 = QWidget()
         self.page_4.setObjectName(u"page_4")
-        self.stackedWidget.addWidget(self.page_4)
+        self.mainContentStacked.addWidget(self.page_4)
 
-        self.horizontalLayout.addWidget(self.stackedWidget)
+        self.horizontalLayout.addWidget(self.mainContentStacked)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.mainContentStacked.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -103,6 +301,5 @@ class Ui_MainWindow(object):
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"HOME", None))
     # retranslateUi
 

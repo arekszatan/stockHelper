@@ -100,47 +100,7 @@ QLineEdit
 }
 
 
-/*-----QTableView-----*/
-QTableView, 
-QHeaderView, 
-QTableView::item 
-{
-	background-color: #232430;
-	color: #c1c1c1;
-	border: none;
 
-}
-
-
-QTableView::item:selected 
-{ 
-    background-color: #41424e;
-    color: #c1c1c1;
-
-}
-
-
-QHeaderView::section:horizontal 
-{
-    background-color: #232430;
-	border: 1px solid #37384d;
-	padding: 5px;
-
-}
-
-
-QTableView::indicator{
-	background-color: #1d1d28;
-	border: 1px solid #37384d;
-
-}
-
-
-QTableView::indicator:checked{
-	image:url(&quot;./ressources/check.png&quot;); /*To replace*/
-	background-color: #1d1d28;
-
-}
 
 /*-----QTabWidget-----*/
 QTabWidget::pane 
@@ -314,7 +274,7 @@ QScrollBar::sub-page:vertical
      </widget>
     </item>
     <item>
-     <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="QStackedWidget" name="mainContentStacked">
       <property name="styleSheet">
        <string notr="true"/>
       </property>
@@ -322,32 +282,15 @@ QScrollBar::sub-page:vertical
        <number>0</number>
       </property>
       <widget class="QWidget" name="Home">
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>40</y>
-          <width>47</width>
-          <height>13</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>HOME</string>
-        </property>
-       </widget>
-       <widget class="QTableView" name="tableView">
-        <property name="geometry">
-         <rect>
-          <x>95</x>
-          <y>80</y>
-          <width>431</width>
-          <height>511</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0" alignment="Qt::AlignHCenter">
+         <widget class="QTableView" name="all_companies_table">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="page_4"/>
      </widget>

@@ -25,7 +25,6 @@ class TableModel(QtCore.QAbstractTableModel):
             return self._data[index.row()][index.column()]
 
         if role == Qt.BackgroundRole:
-            print(QBrush(QColor(Qt.white)))
             return QBrush(QColor(Qt.red))
 
         if role == Qt.ForegroundRole:
