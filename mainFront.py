@@ -3,6 +3,8 @@ import logging
 import sys
 import qasync
 from PySide6 import QtWidgets
+
+from htmlParser.divParser import StockObject
 from mainWindow import Ui_MainWindow
 import pyqtgraph as pg
 from baseElements.baseTable import TableModel
@@ -33,7 +35,8 @@ def set_data_to_table(table_name, header, data):
         a += 1
         table_data.append(data_tmp)
 
-    model = TableModel(table_data, header)
+    test = StockObject("Handlowy", "https://strefainwestorow.pl/notowania/gpw/handlowy-bhw/dywidendy")
+    model = TableModel(test.get_history_div(), header)
     table_name.setModel(model)
 
 
@@ -47,7 +50,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.all_json_data = upload_data_from_file(r"config/config.json")
 
         # Setting for all_companies_table
-        header = ["Lp", "Spółka", "Sdadasda"]
+        header = ["Lp", "Spółka", "Sdadasda", "dsadsa", "sdadasd"]
         set_data_to_table(self.all_companies_table, header, self.all_json_data)
         self.all_companies_table.resizeColumnsToContents()
         self.all_companies_table.doubleClicked.connect(self.all_companies_table_double_click)
