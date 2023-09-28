@@ -1,15 +1,5 @@
 import urllib.request
 
-# fp = urllib.request.urlopen("https://strefainwestorow.pl/notowania/gpw/handlowy-bhw/dywidendy")
-# mybytes = fp.read()
-# mystr = mybytes.decode("utf8")
-# fp.close()
-# num = mystr.find('</thead>')
-# mystr = mystr[num:]
-# num_end = mystr.find('</table>')
-
-
-
 
 class StockObject:
     def __init__(self, stock_name, div_url):
@@ -50,7 +40,7 @@ class StockObject:
         while num1 != -1:
             num1 = my_str.find('</td>')
             my_str_tmp = my_str[:num1]
-            my_str = my_str[num1+5:]
+            my_str = my_str[num1 + 5:]
             my_str_tmp_reverse = my_str_tmp[::-1]
             num = my_str_tmp_reverse.find('>')
             my_str_tmp_reverse = my_str_tmp_reverse[:num]
@@ -62,8 +52,3 @@ class StockObject:
                 self.div_dictionary.append(div_dictionary_tmp)
                 div_dictionary_tmp = []
                 counter = 0
-        print(self.div_dictionary)
-
-
-test = StockObject("Handlowy", "https://strefainwestorow.pl/notowania/gpw/handlowy-bhw/dywidendy")
-
