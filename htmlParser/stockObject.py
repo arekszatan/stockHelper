@@ -1,6 +1,5 @@
 import urllib.request
 
-
 class StockObject:
     def __init__(self, stock_name, div_url):
         self.stock_name = stock_name
@@ -23,6 +22,9 @@ class StockObject:
 
     def get_history_div(self):
         return self.div_dictionary
+
+    def get_optimal_price(self):
+        return float(self.get_history_div()[0][-1][:-2])*10
 
     def __div_url_get_information(self):
         req = urllib.request.urlopen(self.div_url)

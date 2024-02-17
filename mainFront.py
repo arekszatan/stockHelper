@@ -99,16 +99,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.divInfoTableView.horizontalHeader().setSectionResizeMode(QHeaderView.Fixed)
         self.divInfoTableView.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         print(self.divInfoTableView.model().rowCount())
-        #self.divInfoTableView.horizontalHeader().setStretchLastSection(True)
+        # self.divInfoTableView.horizontalHeader().setStretchLastSection(True)
         self.mainContentStacked.setCurrentIndex(1)
 
     def pushbutton_clicked(self):
         thread = BaseThread(
-            target=self.analize_all_companies
+            target=self.analyze_all_companies
         )
         thread.start()
 
-    def analize_all_companies(self):
+    def analyze_all_companies(self):
         data = get_table_data_from_json(self.all_json_data)
         data_len = len(data)
 
@@ -117,13 +117,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             counter_progress_bar += 1
             self.label.setText(com)
             self.label_2.setText(f'{counter_progress_bar} / {data_len}')
+            optimal_price = -1
             if div_link == 'NONE':
                 table_data = 'NONE'
             else:
                 stock_object = StockObject(com, div_link)
                 table_data = stock_object.get_history_div()
+                optimal_price = stock_object.get_optimal_price()
+                print(f'For company {com} optimal price is {optimal_price}')
 
-            print(f'For company {com} div history is {table_data}')
+            # print(f'For company {com} div history is {table_data} and optimal price is {optimal_price}')
 
     def closeEvent(self, event):  # Action to click right top exit button (os# _exit->closing all threads)
         print("Aplication was closed !!!")
